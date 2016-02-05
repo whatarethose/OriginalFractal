@@ -5,16 +5,15 @@ public void setup()
 }
 public void draw()
 {
-	makeFractal(300,300,400);
+	makeFractal(300,300,60000);
 }
 public void makeFractal(int x, int y,int size)
-{
-	if(size <5)
+{	
+	noFill();
+	stroke(255);
+	ellipse(x,y,size,size);
+	if(size>20)
 	{
-		ellipse(x,y,size,size);
-	}	
-	ellipse(.25*x,.25*y,size/4,size/4);
-	ellipse(.75*x,.25*y,size/4,size/4);
-	ellipse(.75*x,.75*y,size/4,size/4);
-	ellipse(.25*x,.75*y,size/4,size/4);
+	makeFractal(x,y,size/2);
+	}
 }
